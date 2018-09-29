@@ -9,7 +9,7 @@ Se muestra en pantalla la clave pública generada y el recurso puppet que permit
 Instalación
 -----------
 
-La forma más sencilla de instalarlo es ejecutar estos comandos en la máquina donde queramos clear el par de claves:
+La forma más sencilla de instalarlo es ejecutar estos comandos en la máquina donde queramos crear el par de claves:  
 
    $ wget --no-check-certificate -O /usr/local/sbin/create-public-and-private-keys https://raw.githubusercontent.com/algodelinux/create-public-and-private-keys/master/create-public-and-private-keys
    $ chmod 755 /usr/local/sbin/create-public-and-private-keys
