@@ -1,0 +1,20 @@
+#!/bin/bash
+
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+
+echo -e "${YELLOW}Generando par de claves para el usuario $USER en $HOSTNAME en el fichero $HOME/.ssh/id_rsa-$HOSTNAME"
+ssh-keygen -q -t rsa -N '' -f $HOME/.ssh/id_rsa-$HOSTNAME
+
+echo -e "\n${YELLOW}Clave pública para el usuario $USER en $HOSTNAME:"
+echo -e "${GREEN}$(cat $HOME/.ssh/id_rsa-$(hostname).pub | awk '{print $2}')"
+
+echo -e "\n${YELLOW}Recurso puppet para distribuir la clave pública del usuario $USER@$HOSTNAME:"
+echo -e "${GREEN}ssh_authorized_key { \"$USER@$HOSTNAME\":
+      ensure => present,
+      type => "rsa",
+      key => \"$(cat $HOME/.ssh/id_rsa-$(hostname).pub | awk '{print $2}')\"
+      user => $USER
+   }"
+
+tput init
