@@ -1,15 +1,39 @@
 #!/bin/bash
 
+#
+# nombre              : create-public-and-private-keys
+# descripción         : Crear un par de claves pública y privada para un usuario y mostrar la clave pública y el recurso puppet para distribuirla
+# autor               : Esteban M. Navas Martín
+# fecha creación      : 29092018
+# última modificación : 29092018
+# uso                 : create-public-and-private-keys
+# instalación         : Guardar en  /usr/local/sbin/
+
+#
+# Copyright 2018, Esteban M. Navas Martín <algodelinux@gmail.com>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License at <http://www.gnu.org/licenses/> for
+# more details.
+#
+
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 
 echo -e "${YELLOW}Generando par de claves para el usuario $USER en $HOSTNAME en el fichero $HOME/.ssh/id_rsa-$HOSTNAME"
 ssh-keygen -q -t rsa -N '' -f $HOME/.ssh/id_rsa-$HOSTNAME
 
-echo -e "\n${YELLOW}Clave p�blica para el usuario $USER en $HOSTNAME:"
+echo -e "\n${YELLOW}Clave pública para el usuario $USER en $HOSTNAME:"
 echo -e "${GREEN}$(cat $HOME/.ssh/id_rsa-$(hostname).pub | awk '{print $2}')"
 
-echo -e "\n${YELLOW}Recurso puppet para distribuir la clave p�blica del usuario $USER@$HOSTNAME:"
+echo -e "\n${YELLOW}Recurso puppet para distribuir la clave pública del usuario $USER@$HOSTNAME:"
 echo -e "${GREEN}ssh_authorized_key { \"$USER@$HOSTNAME\":
       ensure => present,
       type => "rsa",
