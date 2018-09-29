@@ -37,7 +37,7 @@ echo -e "\n${YELLOW}Recurso puppet para distribuir la clave pública del usuario
 echo -e "${GREEN}ssh_authorized_key { \"$USER@$HOSTNAME\":
       ensure => present,
       type => "rsa",
-      key => \"$(cat $HOME/.ssh/id_rsa-$(hostname).pub | awk '{print $2}')\"
+      key => \"$(cat $HOME/.ssh/id_rsa-$(hostname).pub | awk '{print $2}')\",
       user => $USER
    }"
 
