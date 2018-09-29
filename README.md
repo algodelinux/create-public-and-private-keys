@@ -29,8 +29,8 @@ Salida
 
 Recurso puppet para distribuir la clave pública del usuario root@adminies:  
 > ssh_authorized_key { "root@adminies":  
->      ensure => present,  
->      type => rsa,  
->      key => "AAAAB3NzaC1yc2EAAAADAQABAAABAQCyGeWwqdvkxRU7XXc2OuR0++6M3Oh2ZWEakw1eyd9oDIUAp+4EQLdPA00OcXQwzb7oGvdBZrnr30wylWcEbQgSFAAmDEYzv0EFHPQdckETRMpjTFGYGQeHnpwriOsnsaaz4yIegXCFw9eOq6+ngccWHtjp19NrDnUsQLE1TEpQQYk+X/nD5X9kAWW6djuC+ot1f8ds6TKB+7s+IUt/2xlFssHrnJZQ7OxXd4GaYItcSyKPavi+j03qJQfeSTGeApuU06t+PGiw1OEC9idRopLkQDeLlWGFwycT2kMEK24bNcFIdW9EsESsIMBkNYslY0IN9igyyRwfZTxk18GkK/3h"
->      user => root  
+> &nbsp;&nbsp;&nbsp;ensure => present,  
+> &nbsp;&nbsp;&nbsp;type => rsa,  
+> &nbsp;&nbsp;&nbsp;key => "AAAAB3NzaC1yc2EAAAADAQABAAABAQCyGeWwqdvkxRU7XXc2OuR0++6M3Oh2ZWEakw1eyd9oDIUAp+4EQLdPA00OcXQwzb7oGvdBZrnr30wylWcEbQgSFAAmDEYzv0EFHPQdckETRMpjTFGYGQeHnpwriOsnsaaz4yIegXCFw9eOq6+ngccWHtjp19NrDnUsQLE1TEpQQYk+X/nD5X9kAWW6djuC+ot1f8ds6TKB+7s+IUt/2xlFssHrnJZQ7OxXd4GaYItcSyKPavi+j03qJQfeSTGeApuU06t+PGiw1OEC9idRopLkQDeLlWGFwycT2kMEK24bNcFIdW9EsESsIMBkNYslY0IN9igyyRwfZTxk18GkK/3h"
+> &nbsp;&nbsp;&nbsp;user => root  
 > }
